@@ -1,0 +1,73 @@
+<!doctype html>
+<html ng-app="app" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+</head>
+<body ng-controller="mainCtrl">
+<div class="container">
+    <h2>Condensed Table</h2>
+    <p>The .table-condensed class makes a table more compact by cutting cell padding in half:</p>
+    <table class="table table-condensed">
+        <thead>
+        <tr>
+            <th>№</th>
+            <th>Text</th>
+            <th>Status</th>
+
+        </tr>
+        </thead>
+        <tbody id="sortable">
+        <tr ng-repeat="item in dataList" ng-class="selected == $index ? 'success':''" ng-click="select($index)" >
+
+            <td>{{$index+1}}</td>
+            <td>{{item.text}}</td>
+            <td>
+                <input type="button" ng-click="removeItem(item)" value="del" class="btn btn-danger">
+            </td>
+
+        </tr>
+
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="input-group">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" ng-click="addItem(text)">Action </button>
+                </div><!-- /btn-group -->
+                <input type="text" class="form-control" aria-label="..." ng-model="text">
+            </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+
+
+</div>
+
+<taskList></taskList>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
+
